@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	 <data>
+	 	<record id="inherit_respartner_hola_id" model="ir.ui.view">
+	 		<field name="name">res.partner.inherit</field>
+	 		<field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            	<field name="arch" type="xml">
+
+                    <!-- Adicionamos campos el campo -->  
+            		<field name="website" position="after" >
+            			 <field name="rut" string="Rut:" placeholder="00000000-0" />
+                         <field name="emaildte" string="Email para DTE:" placeholder="mail@mail.cl"  />
+                         <field name="giro" string="Giro:"/>                         
+                    </field> 
+
+                    <!-- Oculta el campo -->  
+                    <field name="website"  position="replace">
+                       <field name="website" attrs="{'invisible': True }"/>
+                    </field>
+
+                     <!-- Poner solo lectura  -->  
+                    <field name="phone"  position="replace">
+                       <field name="phone" attrs="{'readonly': True }"/>
+                    </field>
+
+              </field>
+	    </record>
+     </data>
+</openerp>
